@@ -1,0 +1,95 @@
+-------- Etapa 2---------
+MITROFAN ALEXANDRU 323CD
+
+
+Programul BellmanFord a fost luat de pe site-ul
+https://www.geeksforgeeks.org/bellman-ford-algorithm-simple-implementation/
+si l am transformat din java in c
+
+-complexitate O(n*m)
+n - numar noduri
+m - numar muchii
+
+Programul Floyd-Warshall a fost facut de mine si m-am documentat si in 
+seminarul de anul trecut de la materia SD
+
+-complexitate O(n^3)
+n - numar noduri
+
+Programul Dijkstra a fost facut de mine si m -am documentat din seminarul 
+de anul trecut de la materia SD 
+
+-complexitate O(n^2)
+n - numar noduri
+
+Fisiere folsite:
+in -----> contine 20 de teste(generate automat sau de mana)
+
+outBF,outDij,outFW---->contine outputul testelor pe care le verificam ulterior
+cu checkerul
+
+Dijkstra.c ----> implementarea algoritmului Dijkstra
+
+Floyd-Warshall.c ----> implementarea algoritmului Floyd-Warshall
+
+BellmanFord ----> implementarea algoritmului BellmanFord
+
+generate_(...).py -----> programele folosite pentru generarea unor inputuri
+
+checker(...).py -----> checkerele pentru fiecare algoritm in parte
+
+MakeFile -----> contine reguluile de make
+                    ------->make checker (ruleaza checkerele)
+                    ------->make clean (sterge executabilele)
+                    ------->make build (creeaza executabilele)
+                    ------->make run-(...)(ruleaza algoritmul)
+
+Best:
+Am ales algoritmul BellmanFord(este mai rapid ca Dijkstra doar cand m<n ),
+pentru ca se poate aplica si pentru muchii negative(fata de Dijkstra)si are 
+o complexitate mai buna ca algoritmul Floyd-Warshall
+
+Coduri comentate in program:
+Au fost folosite pentru a genera folderele de output si fisierele din ele
+
+Teste:
+-primele 2 teste sunt cu grafuri rare( |E| este mult mai mic decât |V|x|V|),
+primul este mai mic sa se poata verifica de mana corectitudinea ,
+iar cel de-al doilea este generat cu un program in python(generate_rare_graph.py)
+
+-testele 3 si 4 sunt cu grafuri dense( |E| este aproximativ egal cu |V|x|V|),
+primul este mai mic sa se poata verifica de mana corectitudinea ,
+iar cel de-al doilea este generat cu un program in python(generate_dense_graph.py)
+ 
+
+-testele 5 si 6 sunt cu grafuri complete(oricare 2 noduri sunt legate intre ele)
+si neorientate primul este mai mic sa se poata verifica de mana corectitudinea ,
+iar cel de-al doilea este generat cu un program in python(generate_comp_graph.py)
+
+-testele 7 si 8 sunt cu cicluri negative(deci nu o sa functioneze pentru
+Dijkstra,si nici pentru Bellman-Ford si nici pentru Floyd-Warshall),
+la Dijkstra am facut verificarea daca toate muchiile sunt pozitive, 
+daca nu, se va afisa ("Contine muchii negative deci nu se poate apllica Dijkstra"), 
+iar la algoritmul Floyd Warshall am facut verificarea de cicluri negative 
+cu ajutorul algoritmului Bellman-Ford)
+
+-testele 9 si 10 sunt cu numere negative dar fara cicluri negative(deci o sa
+functioneze pentru algoritmii Bellman-Ford si Floyd-Warshall,dar nu o sa
+functioneze pentru algotritmul Dijkstra)
+
+-testul 11 este facut dintr-un graf trivial(cu un singur nod)
+
+-testul 12 este facut dintr-un graff null(fara muchii)
+
+-testul 13 si 14 sunt cu grafuri neconectate
+
+-testul 15 16 sunt facute cu grafuri ciclice
+
+-ultimele 4 teste sunt facute cu grafuri foarte mari cu numere pozitive
+generate intr un progeam in python(generate_graph.py),testul 20 fiind cu valori 
+nenule pozitive
+
+
+Alte resurse folosite:
+https://www.programiz.com/dsa/floyd-warshall-algorithm
+https://www.javatpoint.com/graph-theory-types-of-graphs

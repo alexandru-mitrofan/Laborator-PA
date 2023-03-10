@@ -1,0 +1,18 @@
+---323CD----
+MITROFAN ALEXANDRU
+Problema 1
+Pentru fiecare componenta conexa a grafului verific daca e exista ciclu,
+daca exista ciclu in acea componenta conexa se aduna la raspunsul final
+("rasp") numarul de noduri din componenta, daca nu se aduna la raspunsul
+final("rasp") numarul de noduri din componenta -1
+
+
+
+Problema 3
+Am folosit algoritmul lui Bellman Ford si dupa ce am aflat drumul minim de 
+la nodul src pana la nodul fin ,verific daca nodul fin are muchie spre
+nodul src(de la fin la src), si noi stim cu ajutorul algoritmului lui
+Bellman Ford distanta de la src la fin si dupa adaug valoarea muchiei de
+la fin la src (daca exista) ,si asa aflam valoarea unui ciclu.
+Facem acest lucru inlocuind src cu toate nodurile si fin cu toate nodurile
+si salvam ciclul minim si il afisam
